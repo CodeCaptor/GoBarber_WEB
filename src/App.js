@@ -2,15 +2,17 @@ import React from 'react';
 import { Router } from 'react-router-dom';
 import Routes from './routes';
 import history from './services/history';
-import './App.css';
+import './config/ReactotronConfig';
+import GLobalStyle from './styles/global';
 
 function App() {
   return (
-    <div className="App">
-      <Router history={history}>
-        <Routes />
-      </Router>
-    </div>
+      <div className="App">
+          <Router history={history}>
+              <Routes />
+              <GLobalStyle />
+            </Router>
+        </div>
   );
 }
 
