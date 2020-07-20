@@ -7,12 +7,12 @@ import GLobalStyle from './styles/global';
 
 function App() {
   return (
-    <div className="App">
-      <Router history={history}>
-        <Routes />
-        <GLobalStyle />
-      </Router>
-    </div>
+      <div className="App">
+          <Router history={history}>
+              <Routes />
+              <GLobalStyle />
+            </Router>
+        </div>
   );
 }
 

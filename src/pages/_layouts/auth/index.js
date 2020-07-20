@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import { Wrapper } from './styles';
 
 function AuthLayout({ children }) {
-  return (
-    <Wrapper>
-      {children}
-    </Wrapper>
-  );
+  return <Wrapper>{children}</Wrapper>;
 }
 
 export default AuthLayout;
