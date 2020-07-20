@@ -6,14 +6,14 @@ import './config/ReactotronConfig';
 import GLobalStyle from './styles/global';
 
 function App() {
-  return (
-      <div className="App">
-          <Router history={history}>
-              <Routes />
-              <GLobalStyle />
+    return (
+        <div className="App">
+            <Router history={history}>
+                <Routes />
+                <GLobalStyle />
             </Router>
         </div>
-  );
+    );
 }
 
 export default App;

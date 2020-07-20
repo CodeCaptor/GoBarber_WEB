@@ -7,7 +7,7 @@ import Dashboard from '~/pages/Dashboard';
 import Profile from '~/pages/Profile';
 
 export default function Routes() {
-  return (
+    return (
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={SignIn} />
@@ -18,5 +18,5 @@ export default function Routes() {
                 <Route path="/" component={() => <h1>404</h1>} />
             </Switch>
         </BrowserRouter>
-  );
+    );
 }
