@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { lighten } from 'polished';
-import PerfectScrollBar from 'react-perfect-scrollbar';
 
 export const Container = styled.div`
     position: relative;
@@ -27,6 +26,8 @@ export const Badge = styled.button`
         `}
 `;
 export const Scroll = styled.div`
+    display: ${(props) => (props.visible ? 'block' : 'none')};
+
     &::before {
         content: '';
         position: absolute;
@@ -65,17 +66,17 @@ export const Notification = styled.div`
         line-height: 18px;
     }
     time {
+        display: block;
         font-size: 12px;
         opacity: 0.6;
+        margin-bottom: 5px;
     }
     button {
         font-size: 12px;
         border: 0;
         background: none;
         color: ${lighten(0.2, '#7159c1')};
-        padding: 0 5px;
-        margin: 0 5px;
-        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        margin-right: 10px;
     }
     ${(props) =>
         props.unread &&
