@@ -5,10 +5,12 @@ import { Container } from './styles';
 
 function Profile() {
     const profile = useSelector((state) => state.User.profile);
-    function handleSubmit() {}
+    function handleSubmit(data) {
+        console.tron.log(data);
+    }
     return (
         <Container>
-            <Form initialData={profile}>
+            <Form initialData={profile} onSubmit={handleSubmit}>
                 <Input name="name" type="text" placeholder="Nome completo" />
                 <Input name="email" type="email" placeholder="Seu email" />
                 <hr />

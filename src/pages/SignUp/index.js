@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
-import { userRequest } from '~/store/modules/user/actions';
+import { userUpdateProfileRequest } from '~/store/modules/user/actions';
 import logo from '~/assets/white_logo.svg';
 
 const schema = Yup.object().shape({
@@ -17,7 +17,7 @@ export default function SignUp() {
     const dispatch = useDispatch();
 
     function handleSubmit({ name, email, password }) {
-        dispatch(userRequest(name, email, password));
+        dispatch(userUpdateProfileRequest(name, email, password));
     }
 
     return (

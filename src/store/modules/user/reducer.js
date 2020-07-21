@@ -8,15 +8,15 @@ export default function auth(state = INITIAL_STATE, action) {
             return produce(state, (draft) => {
                 draft.profile = action.payload.user;
             });
-        case userActions.LOAD_REQUEST:
+        case userActions.REGISTER_PROFILE_REQUEST:
             return produce(state, (draft) => {
                 draft.loading = true;
             });
-        case userActions.LOAD_SUCCESS:
+        case userActions.UPDATE_PROFILE_SUCCESS:
             return produce(state, (draft) => {
                 draft.loading = false;
             });
-        case userActions.LOAD_FAILURE:
+        case userActions.UPDATE_PROFILE_FAILURE:
             return produce(state, (draft) => {
                 draft.loading = false;
             });

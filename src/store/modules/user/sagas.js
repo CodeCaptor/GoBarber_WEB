@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import api from '~/services/api';
 import history from '~/services/history';
 import { userActions } from './types';
-import { userSuccess, userFailure } from './actions';
+import { userUpdateProfileSuccess, userUpdateProfileFailure } from './actions';
 
 export function* signup({ payload }) {
     const { name, email, password } = payload;
@@ -14,12 +14,12 @@ export function* signup({ payload }) {
             password,
             provider: true,
         });
-        yield put(userSuccess());
+        yield put(userUpdateProfileSuccess());
         history.push('/');
         history.go();
     } catch (error) {
         toast.error('Falha no cadastro, verifique seus dados.');
-        yield put(userFailure);
+        yield put(userUpdateProfileFailure);
     }
 }
-export default all([takeLatest(userActions.LOAD_REQUEST, signup)]);
+export default all([takeLatest(userActions.REGISTER_PROFILE_SUCCESS, signup)]);
