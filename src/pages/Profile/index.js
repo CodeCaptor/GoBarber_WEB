@@ -1,16 +1,22 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
+import { userUpdateProfileRequest } from '~/store/modules/user/actions';
 import { Container } from './styles';
+import AvatarInput from './AvatarInput';
 
 function Profile() {
+    const dispatch = useDispatch();
     const profile = useSelector((state) => state.User.profile);
+
     function handleSubmit(data) {
-        console.tron.log(data);
+        dispatch(userUpdateProfileRequest(data));
     }
+
     return (
         <Container>
             <Form initialData={profile} onSubmit={handleSubmit}>
+                <AvatarInput name="avatar_id" />
                 <Input name="name" type="text" placeholder="Nome completo" />
                 <Input name="email" type="email" placeholder="Seu email" />
                 <hr />

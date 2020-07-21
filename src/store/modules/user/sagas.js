@@ -3,7 +3,12 @@ import { toast } from 'react-toastify';
 import api from '~/services/api';
 import history from '~/services/history';
 import { userActions } from './types';
-import { userUpdateProfileSuccess, userUpdateProfileFailure } from './actions';
+import {
+    userUpdateProfileSuccess,
+    userUpdateProfileFailure,
+    userRegisterProfileSuccess,
+    userRegisterProfileFailure,
+} from './actions';
 
 export function* signup({ payload }) {
     const { name, email, password } = payload;
@@ -14,12 +19,33 @@ export function* signup({ payload }) {
             password,
             provider: true,
         });
-        yield put(userUpdateProfileSuccess());
+        yield put(userRegisterProfileSuccess());
         history.push('/');
         history.go();
     } catch (error) {
         toast.error('Falha no cadastro, verifique seus dados.');
-        yield put(userUpdateProfileFailure);
+        yield put(userRegisterProfileFailure());
     }
 }
-export default all([takeLatest(userActions.REGISTER_PROFILE_SUCCESS, signup)]);
+export function* update({ payload }) {
+    const { name, email, avatar_id, ...rest } = payload.data;
+    try {
+        const profile = {
+            name,
+            email,
+            avatar_id,
+            ...(rest.oldPassword ? rest : {}),
+        };
+        const response = yield call(api.put, 'users', profile);
+        toast.success('Perfil atualizado com sucesso!');
+        yield put(userUpdateProfileSuccess(response.data));
+    } catch (error) {
+        toast.error('Falha ao atualizar perfil, revise seus dados');
+        yield put(userUpdateProfileFailure());
+    }
+}
+
+export default all([
+    takeLatest(userActions.REGISTER_PROFILE_SUCCESS, signup),
+    takeLatest(userActions.UPDATE_PROFILE_REQUEST, update),
+]);

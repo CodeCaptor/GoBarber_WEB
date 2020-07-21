@@ -14,6 +14,7 @@ export default function auth(state = INITIAL_STATE, action) {
             });
         case userActions.UPDATE_PROFILE_SUCCESS:
             return produce(state, (draft) => {
+                draft.profile = action.payload.data;
                 draft.loading = false;
             });
         case userActions.UPDATE_PROFILE_FAILURE:
