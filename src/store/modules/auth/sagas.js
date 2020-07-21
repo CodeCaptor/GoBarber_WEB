@@ -16,6 +16,7 @@ export function* auth({ payload }) {
             yield put(authFailure());
             return;
         }
+        api.defaults.headers.Authorization = `Bearer ${token}`;
         yield put(authSuccess(token, user));
         history.push('/dashboard');
     } catch (error) {
@@ -23,4 +24,17 @@ export function* auth({ payload }) {
         yield put(authFailure());
     }
 }
-export default all([takeLatest(authActions.LOAD_REQUEST, auth)]);
+
+export function setToken({ payload }) {
+    if (!payload) {
+        return;
+    }
+    const { token } = payload.Auth;
+    if (token) {
+        api.defaults.headers.Authorization = `Bearer ${token}`;
+    }
+}
+export default all([
+    takeLatest(authActions.LOAD_REQUEST, auth),
+    takeLatest('persist/REHYDRATE', setToken),
+]);
