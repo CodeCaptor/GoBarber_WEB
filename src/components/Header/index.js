@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '~/assets/colored_logo.svg';
 import { Container, Content, Profile } from './styles';
+
+import logo from '~/assets/colored_logo.svg';
+import Notifictions from '../Notifications';
 
 function Header() {
     return (
@@ -12,6 +14,7 @@ function Header() {
                     <Link to="/dashboard">DASHBOARD</Link>
                 </nav>
                 <aside>
+                    <Notifictions />
                     <Profile>
                         <div>
                             <strong>Diego Fernandes</strong>
