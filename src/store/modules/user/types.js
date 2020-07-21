@@ -1,5 +1,6 @@
 export const INITIAL_STATE = {
     profile: null,
+    loading: false,
 };
 
 export const userActions = {
