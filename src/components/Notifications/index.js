@@ -34,7 +34,6 @@ function Notifications() {
                     { addSuffix: true, locale: pt }
                 ),
             }));
-            console.log(data);
             setNotifications(data);
         }
         getNotificationsData();
