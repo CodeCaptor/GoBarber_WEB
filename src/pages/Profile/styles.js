@@ -2,8 +2,10 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
+    height: 100%;
     max-width: 600px;
-    margin: 50px auto;
+    margin: auto;
+    padding-bottom: 50px;
     form {
         display: flex;
         flex-direction: column;
