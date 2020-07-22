@@ -1,18 +1,38 @@
 import { userActions } from './types';
 
-export function userRequest(name, email, password) {
+export function userUpdateProfileRequest(data) {
     return {
-        type: userActions.LOAD_REQUEST,
-        payload: { name, email, password },
+        type: userActions.UPDATE_PROFILE_REQUEST,
+        payload: { data },
     };
 }
-export function userSuccess() {
+export function userUpdateProfileSuccess(data) {
     return {
-        type: userActions.LOAD_SUCCESS,
+        type: userActions.UPDATE_PROFILE_SUCCESS,
+        payload: { data },
     };
 }
-export function userFailure() {
+export function userUpdateProfileFailure() {
     return {
-        type: userActions.LOAD_FAILURE,
+        type: userActions.UPDATE_PROFILE_FAILURE,
+    };
+}
+
+export function userRegisterProfileRequest(data) {
+    return {
+        type: userActions.UPDATE_PROFILE_REQUEST,
+        payload: { data },
+    };
+}
+
+export function userRegisterProfileSuccess() {
+    return {
+        type: userActions.UPDATE_PROFILE_SUCCESS,
+    };
+}
+
+export function userRegisterProfileFailure() {
+    return {
+        type: userActions.UPDATE_PROFILE_FAILURE,
     };
 }
