@@ -8,6 +8,10 @@ export default function auth(state = INITIAL_STATE, action) {
             return produce(state, (draft) => {
                 draft.profile = action.payload.user;
             });
+        case authActions.SIGNOUT:
+            return produce(state, (draft) => {
+                draft.profile = null;
+            });
         case userActions.REGISTER_PROFILE_REQUEST:
             return produce(state, (draft) => {
                 draft.loading = true;

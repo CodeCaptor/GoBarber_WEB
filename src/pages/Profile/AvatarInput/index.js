@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useField, Form } from '@rocketseat/unform';
+import { useField } from '@rocketseat/unform';
 import { Container } from './styles';
 import api from '~/services/api';
 
