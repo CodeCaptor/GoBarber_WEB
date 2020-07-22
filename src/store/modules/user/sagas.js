@@ -27,6 +27,7 @@ export function* signup({ payload }) {
         yield put(userRegisterProfileFailure());
     }
 }
+
 export function* update({ payload }) {
     const { name, email, avatar_id, ...rest } = payload.data;
     try {

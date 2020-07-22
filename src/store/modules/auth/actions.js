@@ -19,3 +19,9 @@ export function authFailure() {
         type: authActions.LOAD_FAILURE,
     };
 }
+
+export function authSignOut() {
+    return {
+        type: authActions.SIGNOUT,
+    };
+}
